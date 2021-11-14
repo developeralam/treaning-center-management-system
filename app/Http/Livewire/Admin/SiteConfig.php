@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\Validator;
 class SiteConfig extends Component
 {
     public $state = [];
-    public function test()
-    {
-        dd('done');
-    }
     public function store()
     {
         $data = Validator::make($this->state, [

@@ -1,4 +1,4 @@
-<div>
+<div> 
     <x-loading-indecator />
     @section('title', 'Site Config')
     <div class="content-header">

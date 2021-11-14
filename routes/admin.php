@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\HeadQuote;
 use App\Http\Livewire\Admin\SiteConfig;
 
-Route::middleware(['auth', 'verified', 'admin'])->get('/', Admin::class)->name('dashboard');
+Route::get('/', Admin::class)->name('dashboard');
 Route::get('/site-config', SiteConfig::class)->name('siteconfig');
 Route::get('/about-us', AboutUs::class)->name('aboutus');
 Route::get('/head-quote', HeadQuote::class)->name('headquote');
