@@ -16,12 +16,12 @@ class SiteConfig extends Component
     public $favicon;
     public function mount()
     {
-        $this->state['logo'] = '';
-        $this->state['favicon'] = '';
+        $this->state['logo']        = '';
+        $this->state['favicon']     = '';
         $this->state['description'] = '';
-        $this->state['address'] = '';
-        $this->state['logourl'] = '';
-        $this->state['faviconurl'] = '';
+        $this->state['address']     = '';
+        $this->state['logourl']     = '';
+        $this->state['faviconurl']  = '';
 
         $data = Config::first();
         if ($data) {

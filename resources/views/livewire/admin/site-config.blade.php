@@ -18,7 +18,7 @@
     </div>
     <div class="content">
         <div class="container-fluid">
-            <div class="card card-primary">
+            <div class="card card-dark">
                 <div class="text-center card-header">
                     <h2 class="">Site Configration</h2>
                 </div>
