@@ -26,24 +26,6 @@
             </div>
         </div>
 
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input
-                    class="form-control form-control-sidebar"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                />
-
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul
@@ -63,7 +45,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ request()->is('admin/site-config', 'admin/about-us') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-sliders-h"></i>
                         <p>
@@ -71,7 +53,7 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview" style="display: none;">
+                    <ul class="nav nav-treeview" style="">
                         <li class="nav-item">
                             <a href="{{ route('admin.siteconfig') }}" class="nav-link {{ request()->is('admin/site-config') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>

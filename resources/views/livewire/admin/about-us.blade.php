@@ -24,16 +24,12 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form wire:submit.prevent="store">
+                <form wire:submit.prevent="store" onsubmit="event.preventDefault">
+                    <input type="hidden" wire:model.defer="state.id">
                     <div class="card-body">
-                        <div class="form-group">
+                        <div class="form-group" wire:ignore>
                             <label for="description">Description<sup class="text-danger">*</sup></label>
-                            <x-editor id="description" model="state.description"/>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="description">test<sup class="text-danger">*</sup></label>
-                            <x-editor id="test" model="state.test" />
+                            <x-editor id="description" model="state.description" value="{{$state['description']}}"/>
                         </div>
                     </div>
                     <!-- /.card-body -->

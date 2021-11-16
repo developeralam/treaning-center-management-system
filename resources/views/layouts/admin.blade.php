@@ -31,6 +31,11 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
         />
+        <style>
+            .nav-treeview li a{
+                padding-left:35px;
+            }
+        </style>
         @stack('styles')
         @livewireStyles
         <script defer src="https://unpkg.com/alpinejs@3.4.1/dist/cdn.min.js"></script>

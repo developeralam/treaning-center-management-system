@@ -1,7 +1,7 @@
-@props(['id', 'model'])
+@props(['id', 'model', 'value'])
 <div>
     <textarea data-description="@this" id="{{$id}}" class="form-control"
-        cols="1009" rows="10"></textarea>
+        cols="1009" rows="10">{!!$value!!}</textarea>
 </div>
 @push('js')
 <script>

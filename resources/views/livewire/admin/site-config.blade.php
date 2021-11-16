@@ -1,4 +1,5 @@
 <div> 
+    <x-loading-indecator />
     @section('title', 'Site Config')
     <div class="content-header">
         <div class="container-fluid">
@@ -41,25 +42,59 @@
                         </div>
                         <div class="form-group col-6">
                             <label for="logo">Logo <sup class="text-danger">*</sup> </label>
-                            <input type="file" wire:model.defer="state.logo" class="form-control-file" id="logo">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" wire:model.defer="logo" class="custom-file-input" id="logo">
+                                    <label class="custom-file-label" for="logo">
+                                        @if($logo)
+                                            {{$logo->getClientOriginalName()}}
+                                        @else
+                                            Choose Logo
+                                        @endif
+                                    </label>
+                                </div>
+                            </div>
+                            <span class="text-muted form-text">Logo Should Be Height:50px Width: 120px</span>
+                            @if($logo)
+                                <img src="{{$logo->temporaryUrl()}}" class="mt-2" style="width:80px; height=80px;" alt="">
+                            @else
+                                <img src="{{$state['logourl']}}" class="mt-2" style="width:80px; height=80px;" alt="">
+                            @endif
                         </div>
                         <div class="form-group col-6">
                             <label for="favicon">Favicon <sup class="text-danger">*</sup> </label>
-                            <input type="file" wire:model.defer="state.favicon" class="form-control-file" id="favicon">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" wire:model.defer="favicon" class="custom-file-input" id="favicon">
+                                    <label class="custom-file-label" for="favicon">
+                                        @if($favicon)
+                                            {{$favicon->getClientOriginalName()}}
+                                        @else
+                                        Choose Favicon
+                                        @endif
+                                    </label>
+                                </div>
+                            </div>
+                            <span class="text-muted form-text">Favicon Should Be Height:64px Width: 64px</span>
+                            @if($favicon)
+                                <img src="{{$favicon->temporaryUrl()}}" class="mt-2" style="width:80px; height=80px;" alt="">
+                            @else
+                                <img src="{{$state['faviconurl']}}" class="mt-2" style="width:80px; height=80px;" alt="">
+                            @endif
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-6" wire:ignore>
                             <label for="description">Description<sup class="text-danger">*</sup></label>
-                            <textarea wire:model.defer="state.description" id="description" class="form-control" cols="30" rows="6"></textarea>
+                            <x-editor id="description" model="state.description" value="{{$state['description']}}"/>
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-6" wire:ignore>
                             <label for="address">Address<sup class="text-danger">*</sup></label>
-                            <textarea wire:model.defer="state.address" id="address" class="form-control" cols="30" rows="6"></textarea>
+                            <x-editor id="address" model="state.address" value="{{$state['address']}}" />
                         </div>
                     </div>
                     <!-- /.card-body -->
             
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
