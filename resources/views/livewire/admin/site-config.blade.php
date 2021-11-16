@@ -1,5 +1,4 @@
 <div> 
-    <x-loading-indecator />
     @section('title', 'Site Config')
     <div class="content-header">
         <div class="container-fluid">
@@ -24,11 +23,17 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form wire:submit.prevent="test"> 
+                <form wire:submit.prevent="store" enctype="multipart/form-data"> 
+                    <input type="hidden" wire:model.defer="state.id">
                     <div class="card-body row">
                         <div class="form-group col-6">
                             <label for="title">Title <sup class="text-danger">*</sup> </label>
                             <input type="text" wire:model.defer="state.title" class="form-control" id="title" placeholder="Enter Title Here">
+                            @error('title')
+                                <div class="invalid-feedback">
+                                    <span>{{$message}}</span>
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group col-6">
                             <label for="phone">Phone <sup class="text-danger">*</sup> </label>
@@ -40,23 +45,15 @@
                         </div>
                         <div class="form-group col-6">
                             <label for="favicon">Favicon <sup class="text-danger">*</sup> </label>
-                            <input type="text" wire:model.defer="state.favicon" class="form-control-file" id="favicon">
+                            <input type="file" wire:model.defer="state.favicon" class="form-control-file" id="favicon">
                         </div>
                         <div class="form-group col-6">
                             <label for="description">Description<sup class="text-danger">*</sup></label>
-                            <textarea wire:model.defer="state.description" id="description" class="form-control" cols="30" rows="10"></textarea>
+                            <textarea wire:model.defer="state.description" id="description" class="form-control" cols="30" rows="6"></textarea>
                         </div>
                         <div class="form-group col-6">
-                            <label for="exampleInputFile">File input</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                            </div>
+                            <label for="address">Address<sup class="text-danger">*</sup></label>
+                            <textarea wire:model.defer="state.address" id="address" class="form-control" cols="30" rows="6"></textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->

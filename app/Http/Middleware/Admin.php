@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Admin
 {
@@ -16,11 +17,12 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session('utype') === 'ADM') {
+        if (Auth::user()->u_type === 'ADM') {
             return $next($request);
         } else {
             session()->flush();
             return redirect()->route('login');
         }
+        return $next($request);
     }
 }

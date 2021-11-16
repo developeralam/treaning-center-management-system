@@ -355,10 +355,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
+                    <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout').submit()">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Logout</p>
                     </a>
+                    <form method="post" action="{{route('logout')}}" id="logout">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </nav>
