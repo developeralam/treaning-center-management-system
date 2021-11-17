@@ -81,19 +81,19 @@
                             <a href="{{ route('admin.siteconfig') }}"
                                 class="nav-link {{ request()->is('admin/site-config') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Site Config</p>
+                                <p>Admission List</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.aboutus') }}"
                                 class="nav-link {{ request()->is('admin/about-us') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>About Us</p>
+                                <p>Student List</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{request()->is('admin/year', 'admin/session', 'admin/batch', 'admin/course', 'admin/teacher') ? 'menu-open': ''}}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tasks"></i>
                         <p>
@@ -101,7 +101,7 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview" style="display: none;">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('admin.year') }}"
                                 class="nav-link {{ request()->is('admin/year') ? 'active' : '' }}">
