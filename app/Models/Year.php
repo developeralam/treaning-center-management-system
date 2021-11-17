@@ -9,4 +9,12 @@ class Year extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function getStatusAttribute($value)
+    {
+        if ($value == 1) {
+            return '<span class="badge badge-pill badge-success">Active</span>';
+        } else {
+            return '<span class="badge badge-pill badge-dnger">InActive</span>';
+        }
+    }
 }
